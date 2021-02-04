@@ -29,10 +29,10 @@ class DBSession:
             raise DBDataException(e)
 
     def get_employee_by_login(self, login: str) -> DBEmployee:
-        return self._session.query(DBEmployee).filter(DBEmployee.login == login).first()
+        return self._session.query(DBEmployee).filter(DBEmployee.login == login, DBEmployee.is_delete == 0).first()
 
     def get_employee_by_id(self, eid: int) -> DBEmployee:
-        return self._session.query(DBEmployee).filter(DBEmployee.id == eid).first()
+        return self._session.query(DBEmployee).filter(DBEmployee.id == eid, DBEmployee.is_delete == 0).first()
 
     def get_employee_all(self) -> List[DBEmployee]:
         return self._session.query(DBEmployee).filter(DBEmployee.is_delete == 0).all()

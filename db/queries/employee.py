@@ -39,8 +39,6 @@ def get_employee(session: DBSession, *, login: str = None, employee_id: int = No
 def patch_employee(session: DBSession, employee: RequestPatchEmployeeDto, employee_id: int) -> DBEmployee:
     db_employee = session.get_employee_by_id(employee_id)
 
-    # attrs = ('first_name', 'last_name', 'position', 'department')
-    # for attr in attrs:
     for attr in employee.fields:
         if hasattr(employee, attr):
             value = getattr(employee, attr)
