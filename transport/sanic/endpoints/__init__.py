@@ -4,4 +4,3 @@ from .employees.auth import AuthEmployeeEndpoint
 from .health import HealthEndpoint
 from .employees.employee import EmployeeEndpoint
 from .employees.get_all import AllEmployeeEndpoint
-
