@@ -21,5 +21,9 @@ def get_routes(config: ApplicationConfig, context: Context) -> Tuple:
         ),
         endpoints.AllEmployeeEndpoint(
             config, context, uri='/employee/all', methods=['GET'], auth_required=True,
+        ),
+        endpoints.CreateMessageEndpoint(
+            config, context, uri='/msg', methods=['POST'], auth_required=True,
         )
+
     )

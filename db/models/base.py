@@ -16,20 +16,20 @@ class BaseModel(Base):
         nullable=False,
         unique=True,
         primary_key=True,
-        autoincrement=True,
+        autoincrement=True
     )
 
     created_at = Column(
         TIMESTAMP,
         nullable=False,
-        default=datetime.datetime.utcnow,
+        default=datetime.datetime.utcnow
     )
 
-    update_at = Column(
+    updated_at = Column(
         TIMESTAMP,
         nullable=False,
         default=datetime.datetime.utcnow,
-        onupdate=datetime.datetime.utcnow,
+        onupdate=datetime.datetime.utcnow
     )
 
     def __repr__(self):

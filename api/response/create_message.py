@@ -1,17 +1,17 @@
 import datetime
+
 from marshmallow import Schema, fields, pre_load, post_load
+
 from api.base import ResponseDto
 
 
-class ResponseEmployeeDtoSchema(Schema):
+class ResponseCreateMessageDtoSchema(Schema):
     id = fields.Int(required=True)
-    login = fields.Str(required=True)
+    sender_id = fields.Int(required=True)
+    recipient_id = fields.Int(required=True)
     created_at = fields.DateTime(required=True)
-    update_at = fields.DateTime(required=True)
-    first_name = fields.Str(required=True)
-    last_name = fields.Str(required=True)
-    position = fields.Str(required=True, allow_none=True)
-    department = fields.Str(required=True, allow_none=True)
+    updated_at = fields.DateTime(required=True)
+    message = fields.Str(required=True)
 
     @pre_load
     @post_load
@@ -30,5 +30,5 @@ class ResponseEmployeeDtoSchema(Schema):
         return dt
 
 
-class ResponseEmployeeDto(ResponseDto, ResponseEmployeeDtoSchema):
-    __schema__ = ResponseEmployeeDtoSchema
+class ResponseCreateMessageDto(ResponseDto, ResponseCreateMessageDtoSchema):
+    __schema__ = ResponseCreateMessageDtoSchema
