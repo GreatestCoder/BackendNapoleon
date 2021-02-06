@@ -27,3 +27,7 @@ class SanicAuthException(SanicException):
 
 class SanicEmployeeNotFound(SanicException):
     status_code = 404
+
+
+class SanicMessageNotFound(SanicException):
+    status_code = 404

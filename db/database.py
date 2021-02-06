@@ -5,7 +5,7 @@ from sqlalchemy.exc import IntegrityError, DataError
 from sqlalchemy.orm import sessionmaker, Session
 
 from db.exceptions import DBIntegrityException, DBDataException
-from db.models import BaseModel, DBEmployee
+from db.models import BaseModel, DBEmployee, DBMessage
 
 
 class DBSession:
@@ -33,6 +33,9 @@ class DBSession:
 
     def get_employee_by_id(self, eid: int) -> DBEmployee:
         return self._session.query(DBEmployee).filter(DBEmployee.id == eid, DBEmployee.is_delete == 0).first()
+
+    def get_message_by_id(self, mid: int) -> DBMessage:
+        return self._session.query(DBEmployee).filter(DBMessage.id == mid, DBMessage.is_delete == 0).first()
 
     def get_employee_all(self) -> List[DBEmployee]:
         return self._session.query(DBEmployee).filter(DBEmployee.is_delete == 0).all()

@@ -12,3 +12,7 @@ class DBEmployeeExistsException(Exception):
 
 class DBEmployeeNotExistsException(Exception):
     pass
+
+
+class DBMessageNotExistsException(Exception):
+    pass

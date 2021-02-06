@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, VARCHAR
+from sqlalchemy import Column, Integer, VARCHAR, BOOLEAN
 from db.models import BaseModel
 
 
@@ -19,4 +19,10 @@ class DBMessage(BaseModel):
     recipient_id = Column(
         Integer,
         nullable=False
+    )
+
+    is_delete = Column(
+        BOOLEAN(),
+        nullable=False,
+        default=False
     )
