@@ -26,7 +26,10 @@ def get_routes(config: ApplicationConfig, context: Context) -> Tuple:
             config, context, uri='/msg', methods=['POST'], auth_required=True,
         ),
         endpoints.MessageEndpoint(
-            config, context, uri='/msg/<mid:int>', methods=['PATCH', 'GET', 'DELETE'], auth_required=True,
+            config, context, uri='/msg/<mid:int>', methods=['PATCH', 'DELETE'], auth_required=True,
+        ),
+        endpoints.OneMessageEndpoint(
+            config, context, uri='/msg/<mid:int>', methods=['GET'], auth_required=True,
         )
 
     )

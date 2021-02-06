@@ -1,8 +1,8 @@
-"""Create Employee
+"""Awesome
 
-Revision ID: 3ca370a2ed97
+Revision ID: 054b84b53114
 Revises: 
-Create Date: 2021-02-06 00:18:17.670456
+Create Date: 2021-02-06 20:28:44.841492
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '3ca370a2ed97'
+revision = '054b84b53114'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -40,6 +40,7 @@ def upgrade():
     sa.Column('message', sa.VARCHAR(length=200), nullable=True),
     sa.Column('sender_id', sa.Integer(), nullable=False),
     sa.Column('recipient_id', sa.Integer(), nullable=False),
+    sa.Column('is_delete', sa.BOOLEAN(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('id')
     )

@@ -16,7 +16,7 @@ class OneMessageEndpoint(BaseEndpoint):
     ) -> BaseHTTPResponse:
 
         try:
-            db_message = message_queries.get_message(session, mid)
+            db_message = message_queries.get_messages(session, mid)
         except DBMessageNotExistsException:
             raise SanicMessageNotFound('Message not found')
         response_model = ResponseCreateMessageDto(db_message)
