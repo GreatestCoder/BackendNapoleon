@@ -1,3 +1,4 @@
+
 from api.request import RequestCreateMessageDto, RequestPatchMessageDto
 from db.database import DBSession
 from db.models import DBMessage
@@ -29,3 +30,9 @@ def delete_message(session: DBSession, message_id: int) -> DBMessage:
     db_message = session.get_message_by_id(message_id)
     db_message.is_delete = True
     return db_message
+
+
+def get_message(session: DBSession, message_id: int) -> DBMessage:
+    db_message = session.get_message_by_id(message_id)
+    db_message.is_delete = True
+    return session.get_message_by_id(message_id)

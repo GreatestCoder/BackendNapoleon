@@ -6,3 +6,4 @@ from .employees.employee import EmployeeEndpoint
 from .employees.get_all import AllEmployeeEndpoint
 from .messages.create import CreateMessageEndpoint
 from .messages.message import MessageEndpoint
+from .messages.get_msg import OneMessageEndpoint
