@@ -1,8 +1,8 @@
-"""Awesome
+"""essage=Create Employee
 
-Revision ID: 054b84b53114
+Revision ID: 35d17f145b01
 Revises: 
-Create Date: 2021-02-06 20:28:44.841492
+Create Date: 2021-02-08 22:30:47.181987
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '054b84b53114'
+revision = '35d17f145b01'
 down_revision = None
 branch_labels = None
 depends_on = None

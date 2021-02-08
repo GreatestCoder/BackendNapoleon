@@ -14,7 +14,9 @@ class CreateMessageEndpoint(BaseEndpoint):
 
         request_model = RequestCreateMessageDto(body)
 
-        db_messages = message_queries.create_message(session, request_model)
+        sender_id = body.get('eid')
+
+        db_messages = message_queries.create_message(session, request_model, sender_id)
         session.commit_session()
 
         response_model = ResponseCreateMessageDto(db_messages)

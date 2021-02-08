@@ -1,16 +1,15 @@
-
 from api.request import RequestCreateMessageDto, RequestPatchMessageDto
 from db.database import DBSession
 from db.models import DBMessage
 
 
-def create_message(session: DBSession, message: RequestCreateMessageDto) -> DBMessage:
+def create_message(session: DBSession, message: RequestCreateMessageDto, sender_id: int) -> DBMessage:
+
     new_message = DBMessage(
         message=message.message,
         recipient_id=message.recipient_id,
-        sender_id=message.sender_id
+        sender_id=sender_id
     )
-
     session.add_model(new_message)
 
     return new_message

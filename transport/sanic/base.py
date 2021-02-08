@@ -72,6 +72,7 @@ class SanicEndpoint:
         if self.auth_required:
             try:
                 body.update(self.import_body_auth(request))
+                body.get('token')
             except SanicAuthException as e:
                 return await self.make_response_json(status=e.status_code)
 
